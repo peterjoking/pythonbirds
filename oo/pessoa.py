@@ -13,5 +13,5 @@ if __name__ == '__main__':
     print(p.nombre)
     p.nombre = 'Pedro'
     print(p.nombre)
-
+    print(p.idade)
 
