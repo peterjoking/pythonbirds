@@ -22,5 +22,12 @@ if __name__ == '__main__':
     print(Pedro.idade)
     print(Pedro.filhos)
     print(Pedro.nombre)
+    Pedro.Apellido = 'Burlando'
+    del Pedro.Apellido
+    print(Pedro.__dict__)
+    print(Lucas.__dict__)
+    print(Melisa.__dict__)
+
+
 
 
