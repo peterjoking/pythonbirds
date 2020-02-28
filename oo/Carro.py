@@ -26,13 +26,13 @@ Exemplo:
     >>> motor = Motor()
     >>> motor.velocidade
     0
-    >>> motor.acelerar()
+    >>> motor.acelerar
     >>> motor.velocidade
     1
-    >>> motor.acelerar()
+    >>> motor.acelerar
     >>> motor.velocidade
     2
-    >>> motor.acelerar()
+    >>> motor.acelerar
     >>> motor.velocidade
     3
     >>> motor.frear()
@@ -72,10 +72,10 @@ Exemplo:
     >>> carro = Carro(direcao, motor)
     >>> carro.calcular_velocidade()
     0
-    >>> carro.acelerar()
+    >>> carro.acelerar
     >>> carro.calcular_velocidade()
     1
-    >>> carro.acelerar()
+    >>> carro.acelerar
     >>> carro.calcular_velocidade()
     2
     >>> carro.frear()
@@ -94,21 +94,78 @@ Exemplo:
     'Oeste'
 
 """
+NORTE = 'Norte'
+SUL = 'Sul'
+LESTE = 'Leste'
+OESTE = 'Oeste'
 
+class Carro:
 
-class Carro():
-     def __init__(self, Motor, Direcao):
+   def __init__(self, Motor, Direcao):
          self.Direcao = Direcao
          self.Motor = Motor
 
+   def calcular_velocidade(self):
+         pass
 
-class Motor():
-     def __init__(self, acelerar, frear):
-         self.frear = frear
-         self.acelerar = acelerar
+   def calcular_direcao(self):
+         pass
 
-class Direcao():
+   def girar_a_direita(self):
+         pass
+
+   def girar_a_esquerda(self):
+         pass
+
+
+class Motor:
+     def __init__(self, velocidade= 0):
+        self.velocidade = velocidade
+
+
+     def acelerar(self):
+            self.velocidade += 1
+
+     def frear(self):
+            self.velocidade -= 2
+            self.velocidade = max(0, self.velocidade)
+
+class Direcao:
+     rotacao_a_direita_dict = {NORTE: LESTE, LESTE: SUL, SUL: OESTE, OESTE: NORTE
+     }
+     rotacao_a_esquerda_dict = {NORTE: OESTE, OESTE: SUL, SUL: LESTE, LESTE: NORTE
+     }
      def __init__(self):
+            self.valor = NORTE
+
+     def girar_a_direita(self):
+            self.valor = self.rotacao_a_direita_dict[self.valor]
+      # se creará un diccionario para reducir lineas
+      #      if self.valor == NORTE:
+      #          self.valor = LESTE
+      #      elif self.valor == LESTE:
+      #          self.valor = SUL
+      #      elif self.valor == SUL:
+      #          self.valor = OESTE
+      #      elif self.valor == OESTE:
+      #          self.valor = NORTE
+
+     def girar_a_esquerda(self):
+              self.valor = self.rotacao_a_esquerda_dict[self.valor]
+
+motor = Motor(velocidade= 1)
+motor.frear()
+motor.acelerar()
+veloc = motor.velocidade
+print(veloc)
+
+
+
+
+
+
+
+
 
 
 
