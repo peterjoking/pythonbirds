@@ -26,13 +26,13 @@ Método girar_a_esquerda
     >>> motor = Motor()
     >>> motor.velocidade
     0
-    >>> motor.acelerar
+    >>> motor.acelerar()
     >>> motor.velocidade
     1
-    >>> motor.acelerar
+    >>> motor.acelerar()
     >>> motor.velocidade
     2
-    >>> motor.acelerar
+    >>> motor.acelerar()
     >>> motor.velocidade
     3
     >>> motor.frear()
@@ -72,10 +72,10 @@ Método girar_a_esquerda
     >>> carro = Carro(direcao, motor)
     >>> carro.calcular_velocidade()
     0
-    >>> carro.acelerar
+    >>> carro.acelerar()
     >>> carro.calcular_velocidade()
     1
-    >>> carro.acelerar
+    >>> carro.acelerar()
     >>> carro.calcular_velocidade()
     2
     >>> carro.frear()
